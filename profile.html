@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+
+    <title>Profile</title>
+
+    <link href="/assets/extra-libs/c3/c3.min.css" rel="stylesheet" />
+    <link href="/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet" />
+    <link href="/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+
+    <link href="/dist/css/style.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-lg">
+                <div class="navbar-header" data-logobg="skin6">
+                    <a class="nav-toggler waves-effect waves-light d-block d-lg-none" href="javascript:void(0)"><i
+              class="ti-menu ti-close"></i></a>
+
+                    <div class="navbar-brand font-21">
+                        <a href="/dashboard.html">
+              E-LMS
+            </a>
+                    </div>
+
+                    <a class="topbartoggler d-block d-lg-none waves-effect waves-light" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav float-left me-auto ms-3 ps-1">
+
+
+                    </ul>
+
+                    <ul class="navbar-nav float-end">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="./assets/images/users/d1.jpg" alt="user" class="rounded-circle" width="40" />
+                                <span class="ms-2 d-none d-lg-inline-block"><span>Welcome,</span>
+                                <span id="fullname" class="text-dark"></span>
+                                <i data-feather="chevron-down" class="svg-icon"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-right user-dd animated flipInY">
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="mail"
+                    class="svg-icon me-2 ms-1"></i>
+                  Inbox</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a onclick="Logout()" class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
+                    class="svg-icon me-2 ms-1"></i>
+                  Logout</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="/dashboard.html" aria-expanded="false"><i data-feather="home"
+                  class="feather-icon"></i><span class="hide-menu">Dashboard</span></a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/profile.html" aria-expanded="false"><i data-feather="tag"
+                    class="feather-icon"></i><span class="hide-menu">Profile </span></a>
+                        </li>
+
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="/ticket-list.html" aria-expanded="false"><i data-feather="tag"
+                  class="feather-icon"></i><span class="hide-menu">Task </span></a>
+                        </li>
+
+
+
+                        <li class="sidebar-item">
+                            <a onclick="Logout()" class="sidebar-link sidebar-link" href="javascript:void(0)" aria-expanded="false"><i
+                  data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span></a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="page-wrapper">
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">
+                            My Profile
+                        </h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item">
+                                        <a href="/dashboard.html" class="text-muted">E-LMS</a>
+                                    </li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">
+                                        Profile
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Admin Dashboard</h4>
+                            <h6 class="card-subtitle">User Basic Information</h6>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+
+                                <tbody>
+                                    <tr>
+
+                                        <th class="border-bottom-0" scope="col">Full Name</th>
+                                        <td id="full_name" class="border-bottom-0"></td>
+
+                                    </tr>
+                                    <tr>
+
+                                        <th class="border-bottom-0" scope="row">Date of Birth</th>
+                                        <td id="date_of_birth" class="border-bottom-0"></td>
+
+
+                                    </tr>
+                                    <!-- <tr>
+
+                                        <th class="border-bottom-0" scope="row">Gender</th>
+                                        <td class="border-bottom-0">N/A</td>
+
+
+                                    </tr> -->
+                                    <tr>
+
+                                        <th class="border-bottom-0" scope="row">Course Taken</th>
+                                        <td id="course" class="border-bottom-0"></td>
+
+
+                                    </tr>
+                                    <tr>
+
+                                        <th class="border-bottom-0" scope="row">Email Address</th>
+                                        <td id="email" class="border-bottom-0"></td>
+
+
+                                    </tr>
+                                    <!-- <tr>
+
+                                        <th class="border-bottom-0" scope="row">Phone Number</th>
+                                        <td class="border-bottom-0">0802626262</td>
+
+
+                                    </tr> -->
+                                    <tr>
+
+                                        <th class="border-bottom-0" scope="row">Address</th>
+                                        <td id="address" class="border-bottom-0"></td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./dist/js/app-style-switcher.js"></script>
+    <script src="./dist/js/feather.min.js"></script>
+    <script src="./assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="./dist/js/sidebarmenu.js"></script>
+
+    <script src="./dist/js/custom.min.js"></script>
+
+    <script src="./assets/extra-libs/c3/d3.min.js"></script>
+    <script src="./assets/extra-libs/c3/c3.min.js"></script>
+    <script src="./assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="./assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="./assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="./assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./dist/js/pages/dashboards/dashboard1.min.js"></script>
+    <script src="/js/fetchUser.js"></script>
+    <script>
+        let $1 = (el) => document.getElementById(el)
+        FetchUser().then(response => {
+            if (response.error) {
+                alert(response.message)
+                return window.open('/', '_self')
+            }
+            console.log(response)
+            $('#full_name').text(response.full_name)
+            $('#fullname').text(response.full_name)
+            $('#date_of_birth').text(response.date_of_birth)
+            $("#email").text(response.username)
+            $('#course').text(response.course)
+            $('#address').text(response.address)
+
+        })
+
+        function Logout() {
+
+            let shouldLogout = confirm("Are you sure you want to logout?")
+
+            if (!shouldLogout) return
+
+            localStorage.removeItem('userToken')
+            window.open('/', '_self')
+        }
+    </script>
+</body>
+
+</html>
