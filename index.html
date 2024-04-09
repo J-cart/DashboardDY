@@ -109,7 +109,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="./assets/images/users/d1.jpg" alt="user" class="rounded-circle" width="40" />
-                                <span class="ms-2 d-none d-lg-inline-block"><span>Welcome,</span>
+                                <span class="ms-2 d-none d-lg-inline-block"><span>Welcome, <span id="welcome-username"></span>
                                 <span id="fullname" class="text-dark"></span>
                                 <i data-feather="chevron-down" class="svg-icon"></i></span>
                             </a>
@@ -129,6 +129,10 @@
                             </div>
                         </li>
                     </ul>
+                    <script>
+                        const username = new URLSearchParams(window.location.search).get('username');
+                        document.getElementById('welcome-username').textContent = username;
+                    </script>
                 </div>
             </nav>
         </header>
